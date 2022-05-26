@@ -5185,6 +5185,20 @@ public final class Settings {
         public static final String POINTER_SPEED = "pointer_speed";
 
         /**
+         * GameSpace: List of added games by user
+         * @hide
+         */
+        @Readable
+        public static final String GAMESPACE_GAME_LIST = "gamespace_game_list";
+
+        /**
+         * GameSpace: Whether fullscreen intent will be suppressed while in game session
+         * @hide
+         */
+        @Readable
+        public static final String GAMESPACE_SUPPRESS_FULLSCREEN_INTENT = "gamespace_suppress_fullscreen_intent";
+
+        /**
          * Whether lock-to-app will be triggered by long-press on recents.
          * @hide
          */
@@ -10385,6 +10399,12 @@ public final class Settings {
          * @hide
          */
         public static final String POWER_MENU_HIDE_ON_SECURE = "power_menu_hide_on_secure";
+
+        /**
+         * Whether to turn on black theme
+         * @hide
+         */
+        public static final String SYSTEM_BLACK_THEME = "system_black_theme";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
