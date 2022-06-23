@@ -5179,6 +5179,10 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
                 mAtmService.updateActivityUsageStats(this, Event.ACTIVITY_STOPPED);
                 break;
             case DESTROYED:
+                if (app != null && (mVisible || mVisibleRequested)) {
+                    // The app may be died while visible (no PAUSED state).
+                    mAtmService.updateBatteryStats(this, false);
+                }
                 mAtmService.updateActivityUsageStats(this, Event.ACTIVITY_DESTROYED);
                 // Fall through.
             case DESTROYING:
@@ -6371,7 +6375,8 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         }
 
         if (windowFromSameProcessAsActivity) {
-            return mAtmService.mAmInternal.inputDispatchingTimedOut(anrApp.mOwner,
+            return mAtmService.mAmInternal.inputDispatchingTimedOut(
+                    anrApp != null? anrApp.mOwner : null,
                     anrActivity.shortComponentName, anrActivity.info.applicationInfo,
                     shortComponentName, app, false, reason);
         } else {
