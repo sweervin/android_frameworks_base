@@ -106,6 +106,12 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         outRect.bottom += translationY;
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        mMobileGroup.measure(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(mMobileGroup.getMeasuredWidth(), mMobileGroup.getMeasuredHeight());
+    }
+
     private void init(boolean providerModel) {
         mProviderModel = providerModel;
         mDualToneHandler = new DualToneHandler(getContext());
@@ -186,7 +192,7 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
 
         setContentDescription(state.contentDescription);
         int newVisibility = state.visible && !mForceHidden ? View.VISIBLE : View.GONE;
-        if (newVisibility != mMobileGroup.getVisibility()) {
+        if (newVisibility != mMobileGroup.getVisibility() && STATE_ICON == mVisibleState) {
             mMobileGroup.setVisibility(newVisibility);
             needsLayout = true;
         }
