@@ -17,4 +17,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Qs visibility -->
     <dimen name="screenrecord_dot_size">48dp</dimen>
+
+    <!-- Network traffic -->
+    <dimen name="network_traffic_width">25sp</dimen>
+
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
+
+    <!-- Height of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
+
+    <!-- Width of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
+
 </resources>
